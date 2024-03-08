@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Динозаврик</title>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0;
+        }
+
+        #dino {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background: url('path_to_dino_image.png') center/contain no-repeat;
+            animation: run 1s steps(8) infinite;
+        }
+
+        @keyframes run {
+            from { background-position: 0; }
+            to { background-position: -800px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="dino"></div>
+
+    <script>
+        // Функция для изменения скорости движения динозавра
+        function setSpeed(speed) {
+            document.getElementById('dino').style.animationDuration = speed + 's';
+        }
+
+        // Изменяем скорость движения динозавра каждые 3 секунды
+        setInterval(function() {
+            setSpeed(Math.random() * 2 + 1); // случайная скорость от 1 до 3 секунд
+        }, 3000);
+    </script>
+</body>
+</html>
